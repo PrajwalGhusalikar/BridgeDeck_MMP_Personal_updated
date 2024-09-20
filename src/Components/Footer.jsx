@@ -18,7 +18,7 @@ const Footer = () => {
         theme === "dark"
           ? "bg-[#313131] text-white"
           : "bg-gray-300 text-gray-900"
-      } text-white p-8`}
+      } text-white p-8 pt-0`}
     >
       {/* <div
         className={` h-60 flex justify-center ${

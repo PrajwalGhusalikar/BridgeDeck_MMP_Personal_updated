@@ -1,16 +1,16 @@
 import React from "react";
-import image1 from "../Assets/MMPImages/APL Kennedy.jpg";
-import image2 from "../Assets/MMPImages/APL Pres Cleveland in Naha.jpg";
-import image3 from "../Assets/MMPImages/Hap_Laoyd.jpeg";
-import image4 from "../Assets/MMPImages/Potomac Express -.jpg";
-import image5 from "../Assets/MMPImages/Seacor Green Ridge visit IMG_7154.jpg";
-import image6 from "../Assets/MMPImages/USNS Yuma.jpg";
-import image7 from "../Assets/MMPImages/USNSJohnLewis1.jpg";
+// import image1 from "../Assets/MMPImages/APL Kennedy.jpg";
+// import image2 from "../Assets/MMPImages/APL Pres Cleveland in Naha.jpg";
+// import image3 from "../Assets/MMPImages/Hap_Laoyd.jpeg";
+// import image4 from "../Assets/MMPImages/Potomac Express -.jpg";
+// import image5 from "../Assets/MMPImages/Seacor Green Ridge visit IMG_7154.jpg";
+// import image6 from "../Assets/MMPImages/USNS Yuma.jpg";
+// import image7 from "../Assets/MMPImages/USNSJohnLewis1.jpg";
 import logo from "../Assets/HomeLogo.png";
 import "../App.css";
 // import video from "../Assets/MMPImages/video.mp4";
 import video2 from "../Assets/MMPImages/video2.mp4";
-import { Carousel } from "react-responsive-carousel";
+// import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useNavigate } from "react-router-dom";
 
@@ -57,7 +57,7 @@ const Home = () => {
 
       {/* Need help and get info section */}
       <div
-        className={` my-10 h-60 flex justify-center ${
+        className={` my-10 mb-0 h-60 flex justify-center ${
           theme === "dark"
             ? " bg-gray-800  text-white"
             : "bg-gray-100 text-gray-900"
@@ -126,71 +126,6 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </div>
-      {/* Carousel */}
-      <div className="mt-0">
-        <Carousel
-          autoPlay
-          infiniteLoop
-          interval={2000} // Increase interval to make it more comfortable
-          showArrows={true}
-          stopOnHover={false} // Ensure infinite loop continues on hover
-          swipeable={true}
-          showThumbs={false} // Hide clickable images at the bottom
-          dynamicHeight={false} // Set static height for images
-          centerMode={true}
-          centerSlidePercentage={80}
-        >
-          <div>
-            <img
-              src={image1}
-              alt="APL Kennedy"
-              style={{ height: "500px", objectFit: "cover" }}
-            />
-          </div>
-          <div>
-            <img
-              src={image2}
-              alt="APL Pres Cleveland in Naha"
-              style={{ height: "500px", objectFit: "cover" }}
-            />
-          </div>
-          <div>
-            <img
-              src={image3}
-              alt="Hap Laoyd"
-              style={{ height: "500px", objectFit: "cover" }}
-            />
-          </div>
-          <div>
-            <img
-              src={image4}
-              alt="Potomac Express"
-              style={{ height: "500px", objectFit: "cover" }}
-            />
-          </div>
-          <div>
-            <img
-              src={image5}
-              alt="Seacor Green Ridge visit"
-              style={{ height: "500px", objectFit: "cover" }}
-            />
-          </div>
-          <div>
-            <img
-              src={image6}
-              alt="USNS Yuma"
-              style={{ height: "500px", objectFit: "cover" }}
-            />
-          </div>
-          <div>
-            <img
-              src={image7}
-              alt="USNS John Lewis"
-              style={{ height: "500px", objectFit: "cover" }}
-            />
-          </div>
-        </Carousel>
       </div>
     </div>
   );
