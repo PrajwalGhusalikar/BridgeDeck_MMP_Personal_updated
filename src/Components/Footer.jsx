@@ -20,7 +20,7 @@ const Footer = () => {
           : "bg-gray-300 text-gray-900"
       } text-white p-8`}
     >
-      <div
+      {/* <div
         className={` h-60 flex justify-center ${
           theme === "dark"
             ? " bg-gray-800  text-white"
@@ -90,7 +90,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="max-w-screen-xl mx-auto py-10">
         <div
