@@ -142,7 +142,7 @@ const Home = () => {
           <img
             key={index}
             src={image}
-            alt={`Slideshow image ${index + 1}`}
+            alt={`Slideshow ${image + index}`}
             className={`absolute w-full h-full object-cover transition-opacity duration-1000 ${
               index === currentImageIndex ? "opacity-100" : "opacity-0"
             }`}
