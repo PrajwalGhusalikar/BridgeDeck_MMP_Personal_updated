@@ -14,8 +14,16 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const Home = () => {
+  const theme = localStorage.getItem("theme");
   return (
-    <div name="home">
+    <div
+      className={` ${
+        theme === "dark"
+          ? "bg-[#313131] text-white"
+          : "bg-gray-300 text-gray-900"
+      } text-white p-8`}
+      name="home"
+    >
       <div
         style={{ backgroundSize: "cover", backgroundColor: "black" }}
         className="relative flex justify-center items-center h-screen"
@@ -46,7 +54,7 @@ const Home = () => {
       </div>
 
       {/* Carousel */}
-      <div className="mt-0">
+      <div className="mt-10">
         <Carousel
           autoPlay
           infiniteLoop
