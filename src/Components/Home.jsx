@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import image1 from "../Assets/MMPImages/APL Kennedy.jpg";
 import image2 from "../Assets/MMPImages/APL Pres Cleveland in Naha.jpg";
 import image3 from "../Assets/MMPImages/Hap_Laoyd.jpeg";
@@ -8,15 +8,27 @@ import image6 from "../Assets/MMPImages/USNS Yuma.jpg";
 import image7 from "../Assets/MMPImages/USNSJohnLewis1.jpg";
 import logo from "../Assets/HomeLogo.png";
 import "../App.css";
-// import video from "../Assets/MMPImages/video.mp4";
 import video2 from "../Assets/MMPImages/video2.mp4";
-import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const navigate = useNavigate();
   const theme = localStorage.getItem("theme");
+  const images = useMemo(
+    () => [image1, image2, image3, image4, image5, image6, image7],
+    []
+  );
+  // Randomize and select 6 images on page refresh
+  const [currentImages, setCurrentImages] = useState([]);
+
+  useEffect(() => {
+    const shuffledImages = images.sort(() => 0.5 - Math.random());
+    setCurrentImages(shuffledImages.slice(0, 6)); // Select 6 random images
+  }, [images]);
+
+  // Duplicate the array of current images for infinite scrolling effect
+  const duplicatedImages = [...currentImages, ...currentImages];
+
   return (
     <div
       className={` ${
@@ -127,70 +139,45 @@ const Home = () => {
           </div>
         </div>
       </div>
-      {/* Carousel */}
-      <div className="mt-0">
-        <Carousel
-          autoPlay
-          infiniteLoop
-          interval={2000} // Increase interval to make it more comfortable
-          showArrows={true}
-          stopOnHover={false} // Ensure infinite loop continues on hover
-          swipeable={true}
-          showThumbs={false} // Hide clickable images at the bottom
-          dynamicHeight={false} // Set static height for images
-          centerMode={true}
-          centerSlidePercentage={80}
+
+      {/* images */}
+      <div
+        className={`${
+          theme === "dark"
+            ? "bg-[#313131] text-white"
+            : "bg-gray-300 text-gray-900"
+        }`}
+      >
+        {/* Film Roll Image Section */}
+        <div
+          className={`${
+            theme === "dark"
+              ? "bg-[#313131] text-white"
+              : "bg-gray-300 text-gray-900"
+          } `}
         >
-          <div>
-            <img
-              src={image1}
-              alt="APL Kennedy"
-              style={{ height: "500px", objectFit: "cover" }}
-            />
-          </div>
-          <div>
-            <img
-              src={image2}
-              alt="APL Pres Cleveland in Naha"
-              style={{ height: "500px", objectFit: "cover" }}
-            />
-          </div>
-          <div>
-            <img
-              src={image3}
-              alt="Hap Laoyd"
-              style={{ height: "500px", objectFit: "cover" }}
-            />
-          </div>
-          <div>
-            <img
-              src={image4}
-              alt="Potomac Express"
-              style={{ height: "500px", objectFit: "cover" }}
-            />
-          </div>
-          <div>
-            <img
-              src={image5}
-              alt="Seacor Green Ridge visit"
-              style={{ height: "500px", objectFit: "cover" }}
-            />
-          </div>
-          <div>
-            <img
-              src={image6}
-              alt="USNS Yuma"
-              style={{ height: "500px", objectFit: "cover" }}
-            />
-          </div>
-          <div>
-            <img
-              src={image7}
-              alt="USNS John Lewis"
-              style={{ height: "500px", objectFit: "cover" }}
-            />
-          </div>
-        </Carousel>
+          <div className="my-10 flex justify-center items-center">
+            <div className="container mx-auto px-4">
+              {/* Film Roll Animation */}
+              <div className="overflow-hidden relative">
+                <div className="flex justify-center items-center space-x-4 animate-scrollFilmRoll">
+                  {duplicatedImages.map((image, index) => (
+                    <div
+                      key={index}
+                      className="w-80 h-60 flex-shrink-0 transition-all duration-500 hover:scale-105"
+                    >
+                      <img
+                        src={image}
+                        alt={` ${image + index}`}
+                        className="w-full h-full object-cover rounded-lg shadow-lg"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>{" "}
+        </div>
       </div>
     </div>
   );

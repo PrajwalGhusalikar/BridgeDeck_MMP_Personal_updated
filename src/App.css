@@ -4,7 +4,9 @@
   color: white; /* equivalent to text-white */
   text-align: center; /* equivalent to text-center */
   font-size: 1.125rem; /* equivalent to text-lg */
-  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5)); /* equivalent to drop-shadow-lg */
+  filter: drop-shadow(
+    0 0 10px rgba(0, 0, 0, 0.5)
+  ); /* equivalent to drop-shadow-lg */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   /* animation: float 3s ease-in-out infinite; */
 }
@@ -17,3 +19,17 @@
     transform: translateY(-10px);
   }
 } */
+
+@keyframes scrollFilmRoll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-scrollFilmRoll {
+  display: flex;
+  animation: scrollFilmRoll 30s linear infinite;
+}

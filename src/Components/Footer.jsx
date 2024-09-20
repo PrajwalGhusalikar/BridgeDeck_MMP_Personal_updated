@@ -18,7 +18,7 @@ const Footer = () => {
         theme === "dark"
           ? "bg-[#313131] text-white"
           : "bg-gray-300 text-gray-900"
-      } text-white p-8`}
+      } text-white p-8 pt-0`}
     >
       {/* <div
         className={` h-60 flex justify-center ${
@@ -92,9 +92,9 @@ const Footer = () => {
         </div>
       </div> */}
 
-      <div className="max-w-screen-xl mx-auto py-10">
+      <div className="max-w-screen-xl mx-auto py-10 pt-0">
         <div
-          className={` p-4 rounded-md my-2 h-40 grid grid-cols-4 gap-2 ${
+          className={` p-4 rounded-md h-40 grid grid-cols-4 gap-2 ${
             theme === "dark" ? " text-white" : " text-gray-900"
           } `}
         >
