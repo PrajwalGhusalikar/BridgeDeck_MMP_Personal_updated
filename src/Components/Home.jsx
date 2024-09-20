@@ -17,6 +17,15 @@ import { useNavigate } from "react-router-dom";
 const Home = () => {
   const navigate = useNavigate();
   const theme = localStorage.getItem("theme");
+  const images = [
+    { src: image1, title: "APL Kennedy" },
+    // { src: image2, title: "APL Pres Cleveland" },
+    { src: image3, title: "Hap Laoyd" },
+    { src: image4, title: "Potomac Express" },
+    { src: image5, title: "Seacor Green Ridge" },
+    { src: image6, title: "USNS Yuma" },
+    { src: image7, title: "USNS John Lewis" },
+  ];
   return (
     <div
       className={` ${
@@ -127,70 +136,22 @@ const Home = () => {
           </div>
         </div>
       </div>
-      {/* Carousel */}
-      <div className="mt-0">
-        <Carousel
-          autoPlay
-          infiniteLoop
-          interval={2000} // Increase interval to make it more comfortable
-          showArrows={true}
-          stopOnHover={false} // Ensure infinite loop continues on hover
-          swipeable={true}
-          showThumbs={false} // Hide clickable images at the bottom
-          dynamicHeight={false} // Set static height for images
-          centerMode={true}
-          centerSlidePercentage={80}
-        >
-          <div>
+
+      {/* instead of carousel */}
+      <div className="grid grid-cols-3 gap-4 p-8">
+        {images.map((image, index) => (
+          <div key={index} className="group relative overflow-hidden">
             <img
-              src={image1}
-              alt="APL Kennedy"
-              style={{ height: "500px", objectFit: "cover" }}
+              src={image.src}
+              alt={image.title}
+              className="transform transition-transform duration-500 group-hover:scale-110"
+              style={{ width: "100%", height: "250px", objectFit: "cover" }}
             />
+            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <p className="text-white text-xl font-bold">{image.title}</p>
+            </div>
           </div>
-          <div>
-            <img
-              src={image2}
-              alt="APL Pres Cleveland in Naha"
-              style={{ height: "500px", objectFit: "cover" }}
-            />
-          </div>
-          <div>
-            <img
-              src={image3}
-              alt="Hap Laoyd"
-              style={{ height: "500px", objectFit: "cover" }}
-            />
-          </div>
-          <div>
-            <img
-              src={image4}
-              alt="Potomac Express"
-              style={{ height: "500px", objectFit: "cover" }}
-            />
-          </div>
-          <div>
-            <img
-              src={image5}
-              alt="Seacor Green Ridge visit"
-              style={{ height: "500px", objectFit: "cover" }}
-            />
-          </div>
-          <div>
-            <img
-              src={image6}
-              alt="USNS Yuma"
-              style={{ height: "500px", objectFit: "cover" }}
-            />
-          </div>
-          <div>
-            <img
-              src={image7}
-              alt="USNS John Lewis"
-              style={{ height: "500px", objectFit: "cover" }}
-            />
-          </div>
-        </Carousel>
+        ))}
       </div>
     </div>
   );
