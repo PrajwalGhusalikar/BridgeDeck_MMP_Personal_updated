@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.46ab27b8.css",
+    "main.js": "/static/js/main.3d988c1a.js",
+    "static/js/453.01ff5c75.chunk.js": "/static/js/453.01ff5c75.chunk.js",
+    "static/media/video2.mp4": "/static/media/video2.172161656644a6cabf1c.mp4",
+    "static/media/USNSJohnLewis1.jpg": "/static/media/USNSJohnLewis1.657f4e1ba31c7fa65559.jpg",
+    "static/media/Potomac Express -.jpg": "/static/media/Potomac Express -.792176dcb406342d749b.jpg",
+    "static/media/Seacor Green Ridge visit IMG_7154.jpg": "/static/media/Seacor Green Ridge visit IMG_7154.d6e89f2e8b9bcd5549cd.jpg",
+    "static/media/pdfImg.png": "/static/media/pdfImg.9ac363d0543eb1601612.png",
+    "static/media/USNS Yuma.jpg": "/static/media/USNS Yuma.62a2136786154c51b7b7.jpg",
+    "static/media/APL Pres Cleveland in Naha.jpg": "/static/media/APL Pres Cleveland in Naha.afd95554f1bfb1a58078.jpg",
+    "static/media/Hap_Laoyd.jpeg": "/static/media/Hap_Laoyd.c190a5558a77a991e2ad.jpeg",
+    "static/media/APL Kennedy.jpg": "/static/media/APL Kennedy.7c707f9af2e0977f9ae9.jpg",
+    "static/media/HomeLogo.png": "/static/media/HomeLogo.3522bbd9aa308dc2fdab.png",
+    "index.html": "/index.html",
+    "main.46ab27b8.css.map": "/static/css/main.46ab27b8.css.map",
+    "main.3d988c1a.js.map": "/static/js/main.3d988c1a.js.map",
+    "453.01ff5c75.chunk.js.map": "/static/js/453.01ff5c75.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.46ab27b8.css",
+    "static/js/main.3d988c1a.js"
+  ]
+}
