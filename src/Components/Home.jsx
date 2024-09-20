@@ -10,7 +10,7 @@ import logo from "../Assets/HomeLogo.png";
 import "../App.css";
 // import video from "../Assets/MMPImages/video.mp4";
 import video2 from "../Assets/MMPImages/video2.mp4";
-import { Carousel } from "react-responsive-carousel";
+// import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useNavigate } from "react-router-dom";
 
@@ -128,7 +128,7 @@ const Home = () => {
         </div>
       </div>
       {/* Carousel */}
-      <div className="mt-0">
+      {/* <div className="mt-0">
         <Carousel
           autoPlay
           infiniteLoop
@@ -191,6 +191,68 @@ const Home = () => {
             />
           </div>
         </Carousel>
+      </div> */}
+      <div className="grid grid-cols-2 gap-x-4  md:grid-cols-3">
+        <div className=" col-span-1 row-span-3 grid gap-4">
+          <div>
+            <img
+              className="h-full max-w-full rounded-lg object-cover object-center"
+              src={image1}
+              alt="gallery-photo1"
+            />
+          </div>
+        </div>
+        <div className="grid col-span-2 gap-4">
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <img
+                className="h-full max-w-full rounded-lg object-cover object-center"
+                src={image2}
+                alt="gallery-photo2"
+              />
+            </div>
+            <div>
+              <img
+                className="h-full max-w-full rounded-lg object-cover object-center "
+                src={image3}
+                alt="gallery-photo3"
+              />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <img
+                className="h-full max-w-full rounded-lg object-cover object-center"
+                src={image4}
+                alt="gallery-photo4"
+              />
+            </div>
+            <div>
+              <img
+                className="h-full max-w-full rounded-lg object-cover object-center"
+                src={image5}
+                alt="gallery-photo5"
+              />
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <img
+                className="h-full max-w-full rounded-lg object-cover object-center"
+                src={image6}
+                alt="gallery-photo6"
+              />
+            </div>
+            <div>
+              <img
+                className="h-full max-w-full rounded-lg object-cover object-center"
+                src={image7}
+                alt="gallery-photo7"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
