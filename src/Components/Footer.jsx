@@ -92,7 +92,7 @@ const Footer = () => {
         </div>
       </div> */}
 
-      <div className="max-w-screen-xl mx-auto py-10">
+      <div className="max-w-screen-xl mx-auto py-10 pt-0">
         <div
           className={` p-4 rounded-md my-2 h-40 grid grid-cols-4 gap-2 ${
             theme === "dark" ? " text-white" : " text-gray-900"
