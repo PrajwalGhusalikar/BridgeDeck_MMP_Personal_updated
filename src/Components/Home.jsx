@@ -18,20 +18,19 @@ const Home = () => {
     () => [image1, image2, image3, image4, image5, image6, image7],
     []
   );
-  // Randomize and select 6 images on page refresh
+
+  // State to store the current 3 images
   const [currentImages, setCurrentImages] = useState([]);
 
+  // Randomly select 3 images on page load or refresh
   useEffect(() => {
     const shuffledImages = images.sort(() => 0.5 - Math.random());
-    setCurrentImages(shuffledImages.slice(0, 6)); // Select 6 random images
+    setCurrentImages(shuffledImages.slice(0, 3)); // Select 3 random images
   }, [images]);
-
-  // Duplicate the array of current images for infinite scrolling effect
-  const duplicatedImages = [...currentImages, ...currentImages];
 
   return (
     <div
-      className={` ${
+      className={`${
         theme === "dark"
           ? "bg-[#313131] text-white"
           : "bg-gray-300 text-gray-900"
@@ -69,13 +68,13 @@ const Home = () => {
 
       {/* Need help and get info section */}
       <div
-        className={` my-10 h-60 flex justify-center ${
+        className={`my-10 h-60 flex justify-center ${
           theme === "dark"
-            ? " bg-gray-800  text-white"
+            ? "bg-gray-800 text-white"
             : "bg-gray-100 text-gray-900"
         } items-center`}
       >
-        <div className={`container mx-auto px-4  `}>
+        <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-evenly items-center">
             <div className="flex">
               <div className="text-blue-600 mx-4 text-5xl flex items-center h-20 w-20 justify-center rounded-full bg-gray-300">
@@ -83,16 +82,16 @@ const Home = () => {
               </div>
               <div className="mb-4 md:mb-0">
                 <h2
-                  className={`text-4xl font-bold  pb-2 ${
+                  className={`text-4xl font-bold pb-2 ${
                     theme === "dark" ? "text-white" : "text-blue-900"
-                  } `}
+                  }`}
                 >
                   Need help?
                 </h2>
                 <p
-                  className={`text-xl font-normal  ${
+                  className={`text-xl font-normal ${
                     theme === "dark" ? "text-white" : "text-gray-700"
-                  } `}
+                  }`}
                 >
                   View Health and Benefit Provider List
                 </p>
@@ -113,16 +112,16 @@ const Home = () => {
               </div>
               <div className="mb-4 md:mb-0">
                 <h2
-                  className={`text-4xl font-bold  pb-2 ${
+                  className={`text-4xl font-bold pb-2 ${
                     theme === "dark" ? "text-white" : "text-blue-900"
-                  } `}
+                  }`}
                 >
                   Need a form?
                 </h2>
                 <p
-                  className={`text-xl font-normal  ${
+                  className={`text-xl font-normal ${
                     theme === "dark" ? "text-white" : "text-gray-700"
-                  } `}
+                  }`}
                 >
                   Access forms on the Forms page
                 </p>
@@ -140,7 +139,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/* images */}
+      {/* Images Section */}
       <div
         className={`${
           theme === "dark"
@@ -148,35 +147,23 @@ const Home = () => {
             : "bg-gray-300 text-gray-900"
         }`}
       >
-        {/* Film Roll Image Section */}
-        <div
-          className={`${
-            theme === "dark"
-              ? "bg-[#313131] text-white"
-              : "bg-gray-300 text-gray-900"
-          } `}
-        >
-          <div className="my-10 flex justify-center items-center">
-            <div className="container mx-auto px-4">
-              {/* Film Roll Animation */}
-              <div className="overflow-hidden relative">
-                <div className="flex justify-center items-center space-x-4 animate-scrollFilmRoll">
-                  {duplicatedImages.map((image, index) => (
-                    <div
-                      key={index}
-                      className="w-80 h-60 flex-shrink-0 transition-all duration-500 hover:scale-105"
-                    >
-                      <img
-                        src={image}
-                        alt={` ${image + index}`}
-                        className="w-full h-full object-cover rounded-lg shadow-lg"
-                      />
-                    </div>
-                  ))}
+        <div className="my-10 flex justify-center items-center">
+          <div className="container mx-auto px-4">
+            <div className="flex justify-center items-center space-x-4">
+              {currentImages.map((image, index) => (
+                <div
+                  key={index}
+                  className="w-80 h-60 flex-shrink-0 transition-all duration-500 hover:scale-105"
+                >
+                  <img
+                    src={image}
+                    alt={`image-${index}`}
+                    className="w-full h-full object-cover rounded-lg shadow-lg"
+                  />
                 </div>
-              </div>
+              ))}
             </div>
-          </div>{" "}
+          </div>
         </div>
       </div>
     </div>
