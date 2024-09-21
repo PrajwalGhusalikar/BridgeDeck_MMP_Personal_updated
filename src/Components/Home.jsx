@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import image1 from "../Assets/MMPImages/APL Kennedy.jpg";
-// import image2 from "../Assets/MMPImages/APL Pres Cleveland in Naha.jpg";
 import image3 from "../Assets/MMPImages/Hap_Laoyd.jpeg";
 import image4 from "../Assets/MMPImages/Potomac Express -.jpg";
 import image5 from "../Assets/MMPImages/Seacor Green Ridge visit IMG_7154.jpg";
@@ -8,10 +7,7 @@ import image6 from "../Assets/MMPImages/USNS Yuma.jpg";
 import image7 from "../Assets/MMPImages/USNSJohnLewis1.jpg";
 import logo from "../Assets/HomeLogo.png";
 import "../App.css";
-// import video from "../Assets/MMPImages/video.mp4";
 import video2 from "../Assets/MMPImages/video2.mp4";
-// import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
@@ -19,13 +15,41 @@ const Home = () => {
   const theme = localStorage.getItem("theme");
   const images = [
     { src: image1, title: "APL Kennedy" },
-    // { src: image2, title: "APL Pres Cleveland" },
     { src: image3, title: "Hap Laoyd" },
     { src: image4, title: "Potomac Express" },
     { src: image5, title: "Seacor Green Ridge" },
     { src: image6, title: "USNS Yuma" },
     { src: image7, title: "USNS John Lewis" },
   ];
+
+  // Set rows per page
+  const ROW_SIZE = 3;
+
+  // Get the current row index from local storage or default to 0
+  const getCurrentRowIndex = () => {
+    const storedIndex = localStorage.getItem("currentRowIndex");
+    return storedIndex ? parseInt(storedIndex, 10) : 0;
+  };
+
+  // Split images into rows
+  const splitImagesIntoRows = () => {
+    const rows = [];
+    for (let i = 0; i < images.length; i += ROW_SIZE) {
+      rows.push(images.slice(i, i + ROW_SIZE));
+    }
+    return rows;
+  };
+
+  const rows = splitImagesIntoRows();
+  // eslint-disable-next-line
+  const [currentRowIndex, setCurrentRowIndex] = useState(getCurrentRowIndex());
+
+  useEffect(() => {
+    // Update local storage with the next row index on component load
+    const nextRowIndex = (currentRowIndex + 1) % rows.length;
+    localStorage.setItem("currentRowIndex", nextRowIndex);
+  }, [currentRowIndex, rows.length]);
+
   return (
     <div
       className={` ${
@@ -74,6 +98,7 @@ const Home = () => {
       >
         <div className={`container mx-auto px-4  `}>
           <div className="flex flex-col md:flex-row justify-evenly items-center">
+            {/* Need Help Section */}
             <div className="flex">
               <div className="text-blue-600 mx-4 text-5xl flex items-center h-20 w-20 justify-center rounded-full bg-gray-300">
                 <i className="fa-solid fa-envelope"></i>
@@ -104,6 +129,8 @@ const Home = () => {
                 </button>
               </div>
             </div>
+
+            {/* Need Form Section */}
             <div className="flex">
               <div className="text-blue-600 mx-4 text-5xl flex items-center h-20 w-20 justify-center rounded-full bg-gray-300">
                 <i className="fa-regular fa-file-lines"></i>
@@ -137,9 +164,9 @@ const Home = () => {
         </div>
       </div>
 
-      {/* instead of carousel */}
+      {/* Image Grid */}
       <div className="grid grid-cols-3 gap-4 p-8">
-        {images.map((image, index) => (
+        {rows[currentRowIndex].map((image, index) => (
           <div key={index} className="group relative overflow-hidden">
             <img
               src={image.src}
