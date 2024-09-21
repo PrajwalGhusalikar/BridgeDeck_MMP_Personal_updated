@@ -157,7 +157,7 @@ const Home = () => {
                 >
                   <img
                     src={image}
-                    alt={`image-${index}`}
+                    alt={`${index+image}`}
                     className="w-full h-full object-cover rounded-lg shadow-lg"
                   />
                 </div>
