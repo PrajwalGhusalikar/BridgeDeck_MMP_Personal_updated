@@ -7,7 +7,7 @@ import image6 from "../Assets/MMPImages/USNS Yuma.jpg";
 import image7 from "../Assets/MMPImages/USNSJohnLewis1.jpg";
 import logo from "../Assets/HomeLogo.png";
 import "../App.css";
-import video2 from "../Assets/MMPImages/video2.mp4";
+import video2 from "../Assets/MMPImages/video.mp4";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
