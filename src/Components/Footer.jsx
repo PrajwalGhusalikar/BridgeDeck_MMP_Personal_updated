@@ -18,83 +18,11 @@ const Footer = () => {
         theme === "dark"
           ? "bg-[#313131] text-white"
           : "bg-gray-300 text-gray-900"
-      } text-white p-8`}
+      } text-white p-8 pt-0`}
     >
-      {/* <div
-        className={` h-60 flex justify-center ${
-          theme === "dark"
-            ? " bg-gray-800  text-white"
-            : "bg-gray-100 text-gray-900"
-        } items-center`}
-      >
-        <div className={`container mx-auto px-4  `}>
-          <div className="flex flex-col md:flex-row justify-evenly items-center">
-            <div className="flex">
-              <div className="text-blue-600 mx-4 text-5xl flex items-center h-20 w-20 justify-center rounded-full bg-gray-300">
-                <i className="fa-solid fa-envelope"></i>
-              </div>
-              <div className="mb-4 md:mb-0">
-                <h2
-                  className={`text-4xl font-bold  pb-2 ${
-                    theme === "dark" ? "text-white" : "text-blue-900"
-                  } `}
-                >
-                  Need help?
-                </h2>
-                <p
-                  className={`text-xl font-normal  ${
-                    theme === "dark" ? "text-white" : "text-gray-700"
-                  } `}
-                >
-                  View Health and Benefit Provider List
-                </p>
-                <button className="bg-blue-500 hover:bg-blue-900 text-white font-bold py-2 px-6 rounded-lg mt-4">
-                  <a
-                    href="https://api.cyberbriefs.org/media/doc/Health-and-Benefit-Provider-List.pdf"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    GET INFO
-                  </a>
-                </button>
-              </div>
-            </div>
-            <div className="flex">
-              <div className="text-blue-600 mx-4 text-5xl flex items-center h-20 w-20 justify-center rounded-full bg-gray-300">
-                <i className="fa-regular fa-file-lines"></i>
-              </div>
-              <div className="mb-4 md:mb-0">
-                <h2
-                  className={`text-4xl font-bold  pb-2 ${
-                    theme === "dark" ? "text-white" : "text-blue-900"
-                  } `}
-                >
-                  Need a form?
-                </h2>
-                <p
-                  className={`text-xl font-normal  ${
-                    theme === "dark" ? "text-white" : "text-gray-700"
-                  } `}
-                >
-                  Access forms on the Forms page
-                </p>
-                <button
-                  onClick={() => {
-                    navigate("/benifitsplans");
-                  }}
-                  className="bg-blue-500 hover:bg-blue-900 text-white font-bold py-2 px-6 rounded-lg mt-4"
-                >
-                  GET INFO
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> */}
-
-      <div className="max-w-screen-xl mx-auto py-10">
+      <div className="max-w-screen-xl mx-auto pb-10">
         <div
-          className={` p-4 rounded-md my-2 h-40 grid grid-cols-4 gap-2 ${
+          className={` p-4 rounded-md h-40 grid grid-cols-4 gap-2 ${
             theme === "dark" ? " text-white" : " text-gray-900"
           } `}
         >
