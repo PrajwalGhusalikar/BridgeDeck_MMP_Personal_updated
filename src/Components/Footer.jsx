@@ -155,13 +155,13 @@ const Footer = () => {
             H & B PREMIUM PAYMENTS
           </a>
         </div>
-        <h2
+        {/* <h2
           className={`${
             theme === "dark" ? "  text-white" : " text-gray-900"
           } text-2xl font-normal mt-4 mb-4`}
         >
           PATRICK McCULLOUGH, Administrator
-        </h2>
+        </h2> */}
         <div
           className={`grid grid-cols-1 md:grid-cols-2 items-center gap-8  ${
             theme === "dark"

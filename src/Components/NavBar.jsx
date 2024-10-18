@@ -70,24 +70,24 @@ const NavBar = ({ handleTheme }) => {
         >
           REINAUER UNION MEMBER HEALTH INFO
         </div>
-        |
-        <a
+        {/* | */}
+        {/* <a
           href="https://mycostestimates.com/"
           target="_blank"
           rel="noreferrer"
           className="p-2 text-base hover:text-teal-400 font-semibold cursor-pointer"
         >
           H & B PRICE COMPARISON TOOL
-        </a>
-        |
-        <a
+        </a> */}
+        {/* | */}
+        {/* <a
           href="https://www.convergepay.com/hosted-payments/?ssl_txn_auth_token=kfy78mzTR5mcc6i1x85NNQAAAY5TAAnm#!/payment-method"
           target="_blank"
           rel="noreferrer"
           className="p-2 text-base hover:text-teal-400 font-semibold cursor-pointer"
         >
           H & B PREMIUM PAYMENTS
-        </a>
+        </a> */}
         <div className="w-20">
           <button
             onClick={handleTheme}
