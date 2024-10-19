@@ -70,7 +70,10 @@ const Home = () => {
           muted
           className="absolute top-0 left-0 w-full h-full object-cover"
         />
-        <div className="absolute top-16 left-5 flex pt-5 items-center">
+        <div
+          onClick={() => navigate("/")}
+          className="absolute top-16 left-5 flex pt-5 items-center"
+        >
           <img src={logo} alt="Logo" className="h-32 p-1 mx-4" />
           <div className="w-48 font-semibold text-white text-center text-lg drop-shadow-lg text-shadow-floating">
             The Masters, Mates & Pilots Benefit Plans

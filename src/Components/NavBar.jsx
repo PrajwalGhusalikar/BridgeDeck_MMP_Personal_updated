@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const NavBar = ({ handleTheme }) => {
   const theme = localStorage.getItem("theme");
+  // eslint-disable-next-line
   const navigate = useNavigate();
 
   return (
@@ -17,7 +18,23 @@ const NavBar = ({ handleTheme }) => {
         } shadow-lg transition-colors duration-300`}
       >
         {" "}
-        <div
+        <div className="p-2 text-base hover:text-teal-400 font-semibold cursor-pointer">
+          Health and Benefit
+        </div>{" "}
+        |
+        <div className="p-2 text-base hover:text-teal-400 font-semibold cursor-pointer">
+          Pension and APP
+        </div>{" "}
+        |
+        <div className="p-2 text-base hover:text-teal-400 font-semibold cursor-pointer">
+          Vacation
+        </div>{" "}
+        |
+        <div className="p-2 text-base hover:text-teal-400 font-semibold cursor-pointer">
+          IRAP
+        </div>{" "}
+        |
+        {/* <div
           onClick={() => {
             navigate("/");
           }}
@@ -69,7 +86,7 @@ const NavBar = ({ handleTheme }) => {
           className="p-2 text-base hover:text-teal-400 font-semibold cursor-pointer"
         >
           REINAUER UNION MEMBER HEALTH INFO
-        </div>
+        </div> */}
         {/* | */}
         {/* <a
           href="https://mycostestimates.com/"
