@@ -7,7 +7,8 @@ import image6 from "../Assets/MMPImages/USNS Yuma.jpg";
 import image7 from "../Assets/MMPImages/USNSJohnLewis1.jpg";
 import logo from "../Assets/HomeLogo.png";
 import "../App.css";
-import video2 from "../Assets/MMPImages/video.mp4";
+import video1 from "../Assets/MMPImages/video.mp4";
+import video2 from "../Assets/MMPImages/video2.mp4";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
@@ -50,6 +51,11 @@ const Home = () => {
     localStorage.setItem("currentRowIndex", nextRowIndex);
   }, [currentRowIndex, rows.length]);
 
+  const getVideoForDay = () => {
+    const day = new Date().getDay();
+    return day === 1 || day === 3 || day === 5 ? video1 : video2; // Monday, Wednesday, Friday play video1
+  };
+
   return (
     <div
       className={` ${
@@ -64,7 +70,7 @@ const Home = () => {
         className="relative flex justify-center items-center h-screen"
       >
         <video
-          src={video2}
+          src={getVideoForDay()}
           autoPlay
           loop
           muted
