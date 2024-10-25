@@ -10,6 +10,7 @@ import "../App.css";
 import video1 from "../Assets/MMPImages/video.mp4";
 import video2 from "../Assets/MMPImages/video2.mp4";
 import { useNavigate } from "react-router-dom";
+import { DateTime } from "luxon"; // Add this library if using timezone-aware date handling
 
 const Home = () => {
   const navigate = useNavigate();
@@ -23,16 +24,13 @@ const Home = () => {
     { src: image7, title: "USNS John Lewis" },
   ];
 
-  // Set rows per page
   const ROW_SIZE = 3;
 
-  // Get the current row index from local storage or default to 0
   const getCurrentRowIndex = () => {
     const storedIndex = localStorage.getItem("currentRowIndex");
     return storedIndex ? parseInt(storedIndex, 10) : 0;
   };
 
-  // Split images into rows
   const splitImagesIntoRows = () => {
     const rows = [];
     for (let i = 0; i < images.length; i += ROW_SIZE) {
@@ -42,23 +40,41 @@ const Home = () => {
   };
 
   const rows = splitImagesIntoRows();
-  // eslint-disable-next-line
   const [currentRowIndex, setCurrentRowIndex] = useState(getCurrentRowIndex());
 
   useEffect(() => {
-    // Update local storage with the next row index on component load
     const nextRowIndex = (currentRowIndex + 1) % rows.length;
     localStorage.setItem("currentRowIndex", nextRowIndex);
   }, [currentRowIndex, rows.length]);
 
   const getVideoForDay = () => {
-    const day = new Date().getDay();
-    return day === 1 || day === 3 || day === 5 ? video1 : video2; // Monday, Wednesday, Friday play video1
+    // Get the current date and ensure it's timezone-aware
+    const today = DateTime.now().setZone("local").startOf("day").toISODate();
+    // const today = "2024-10-28";
+
+    console.log("Today Date:", today);
+
+    // Check last played date and video from localStorage
+    const lastPlayedDate = localStorage.getItem("lastPlayedDate");
+
+    console.log("Last Played Date:", lastPlayedDate);
+    const lastVideo = localStorage.getItem("lastVideo") || "video1";
+
+    // If the date has changed, switch the video
+    if (lastPlayedDate !== today) {
+      const nextVideo = lastVideo === "video1" ? "video2" : "video1";
+      localStorage.setItem("lastPlayedDate", today);
+      localStorage.setItem("lastVideo", nextVideo);
+      return nextVideo === "video1" ? video1 : video2;
+    }
+
+    // Otherwise, continue with the same video
+    return lastVideo === "video1" ? video1 : video2;
   };
 
   return (
     <div
-      className={` ${
+      className={`${
         theme === "dark"
           ? "bg-[#313131] text-white"
           : "bg-gray-300 text-gray-900"
@@ -97,33 +113,31 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Need help and get info section */}
       <div
-        className={` my-10 h-60 flex justify-center ${
+        className={`my-10 h-60 flex justify-center ${
           theme === "dark"
-            ? " bg-gray-800  text-white"
+            ? "bg-gray-800 text-white"
             : "bg-gray-100 text-gray-900"
         } items-center`}
       >
-        <div className={`container mx-auto px-4  `}>
+        <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-evenly items-center">
-            {/* Need Help Section */}
             <div className="flex">
               <div className="text-blue-600 mx-4 text-5xl flex items-center h-20 w-20 justify-center rounded-full bg-gray-300">
                 <i className="fa-solid fa-envelope"></i>
               </div>
-              <div className="mb-4 md:mb-0">
+              <div>
                 <h2
-                  className={`text-4xl font-bold  pb-2 ${
+                  className={`text-4xl font-bold pb-2 ${
                     theme === "dark" ? "text-white" : "text-blue-900"
-                  } `}
+                  }`}
                 >
                   Need help?
                 </h2>
                 <p
-                  className={`text-xl font-normal  ${
+                  className={`text-xl ${
                     theme === "dark" ? "text-white" : "text-gray-700"
-                  } `}
+                  }`}
                 >
                   View Health and Benefit Provider List
                 </p>
@@ -139,23 +153,22 @@ const Home = () => {
               </div>
             </div>
 
-            {/* Need Form Section */}
             <div className="flex">
               <div className="text-blue-600 mx-4 text-5xl flex items-center h-20 w-20 justify-center rounded-full bg-gray-300">
                 <i className="fa-regular fa-file-lines"></i>
               </div>
-              <div className="mb-4 md:mb-0">
+              <div>
                 <h2
-                  className={`text-4xl font-bold  pb-2 ${
+                  className={`text-4xl font-bold pb-2 ${
                     theme === "dark" ? "text-white" : "text-blue-900"
-                  } `}
+                  }`}
                 >
                   Need a form?
                 </h2>
                 <p
-                  className={`text-xl font-normal  ${
+                  className={`text-xl ${
                     theme === "dark" ? "text-white" : "text-gray-700"
-                  } `}
+                  }`}
                 >
                   Access forms on the Forms page
                 </p>
@@ -173,7 +186,6 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Image Grid */}
       <div className="grid grid-cols-3 gap-4 p-8">
         {rows[currentRowIndex].map((image, index) => (
           <div key={index} className="group relative overflow-hidden">
