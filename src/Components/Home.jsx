@@ -40,6 +40,7 @@ const Home = () => {
   };
 
   const rows = splitImagesIntoRows();
+    // eslint-disable-next-line
   const [currentRowIndex, setCurrentRowIndex] = useState(getCurrentRowIndex());
 
   useEffect(() => {
