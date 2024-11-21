@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import pdfImg from "../Assets/pdfImg.png";
+import SBCMMPActivesNonMedicare from "../Assets/MMPExtraPdfs/2025-SBC-MMP-HB-Plan-Actives-and-Non-Medicare-Retirees.pdf";
+import MedicareRetriees from "../Assets/MMPExtraPdfs/2025-SBC-MMP-HB-Plan-Medicare-Eligible-Retirees.pdf";
+import NonMedicareRetriees from "../Assets/MMPExtraPdfs/MMP-HB-SBC-2024-Actives-Non-Medicare-Retirees9766805.3-1 (1).pdf";
+import MedicareRetriees9766810 from "../Assets/MMPExtraPdfs/MMP-HB-SBC-2024-Medicare-Eligible-Retirees9766810.3-1.pdf";
 
 const documents = [
   {
@@ -27,10 +31,6 @@ const documents = [
         link: "https://bridgedeck.org/wp-content/uploads/2022/12/MMP-Health-Plan-Balance-Billing-Notice-2023.pdf",
         subTitle: "Effective Date of January 1, 2023.",
       },
-      // {
-      //   link: "https://bridgedeck.org/wp-content/uploads/2022/01/4300.01_-MMP-Health-Plan-Balance-Billing-Notice_Full-Format.pdf",
-      //   subTitle: "",
-      // },
     ],
   },
   {
@@ -94,21 +94,54 @@ const documents = [
   {
     title: "Summary of Benefits and Coverage Forms (“SBC’s”)",
     data: [
+      // {
+      //   link: "https://bridgedeck.org/wp-content/uploads/2022/12/2023-SBC_-MMP-HB-Plan_-Actives_Non-Medicare-Retirees-2.pdf",
+      //   subTitle: "SBC for Actives/Non-Medicare Retirees form for 2023",
+      //   // this is to replace
+      // },
+
       {
-        link: "https://bridgedeck.org/wp-content/uploads/2022/12/2023-SBC_-MMP-HB-Plan_-Actives_Non-Medicare-Retirees-2.pdf",
-        subTitle: "SBC for Actives/Non-Medicare Retirees form for 2023",
+        link: SBCMMPActivesNonMedicare,
+        subTitle:
+          "SBC for Actives/Non-Medicare Retirees form for 2025 (Newly Added) ",
+        // to add
       },
+
+      // {
+      //   link: "https://bridgedeck.org/wp-content/uploads/2022/12/2023-SBC_-MMP-HB-Plan_-Medicare-Eligible-Retirees.pdf",
+      //   subTitle: "SBC for Medicare-Eligible Retirees form for 2023",
+      //   // this is to replace
+      // },
+
       {
-        link: "https://bridgedeck.org/wp-content/uploads/2022/12/2023-SBC_-MMP-HB-Plan_-Medicare-Eligible-Retirees.pdf",
-        subTitle: "SBC for Medicare-Eligible Retirees form for 2023",
+        link: MedicareRetriees,
+        subTitle:
+          "SBC for Medicare-Eligible Retirees form for 2025 (Newly Added)",
+        // to add
       },
+
+      // {
+      //   link: "https://bridgedeck.org/wp-content/uploads/2023/11/MMP-HB-SBC-2024-Actives-Non-Medicare-Retirees9766805.3-1.pdf",
+      //   subTitle: "SBC for Actives/Non-Medicare Retirees form for 2024",
+      //   // this is to replace
+      // },
+
       {
-        link: "https://bridgedeck.org/wp-content/uploads/2023/11/MMP-HB-SBC-2024-Actives-Non-Medicare-Retirees9766805.3-1.pdf",
-        subTitle: "SBC for Actives/Non-Medicare Retirees form for 2024",
+        link: NonMedicareRetriees,
+        subTitle:
+          "SBC for Actives/Non-Medicare Retirees form for 2024 (Newly Added)",
+        // to add fixed
       },
+      // {
+      //   link: "https://bridgedeck.org/wp-content/uploads/2023/11/MMP-HB-SBC-2024-Medicare-Eligible-Retirees9766810.3-1.pdf",
+      //   subTitle: "SBC for Medicare-Eligible Retirees form for 2024",
+      //   // this is to replace
+      // },
       {
-        link: "https://bridgedeck.org/wp-content/uploads/2023/11/MMP-HB-SBC-2024-Medicare-Eligible-Retirees9766810.3-1.pdf",
-        subTitle: "SBC for Medicare-Eligible Retirees form for 2024",
+        link: MedicareRetriees9766810,
+        subTitle:
+          "SBC for Medicare-Eligible Retirees form for 2024 (Newly Added)",
+        // to add fixed
       },
     ],
   },
